@@ -1,0 +1,175 @@
+# 2022/08/02 TIL
+
+## Kernel
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3e35a12e-702e-4ecd-80fb-7d9d03ebbd84/Untitled.png)
+
+커널은 하드웨어와 응용프로그램을 이어주는 운영체제의 핵심 시스템 소프트웨어
+
+예를 들어 windows
+
+## Shell
+
+커널에 명령을 내리기 위한 소프트웨어
+
+커널과 사용자를 이어주는 소프트웨어가 쉘
+
+- bash
+    
+    Brian Fox가 작성한 유닉스 쉘
+    다양한 운영체제에서 기본 쉘로 채택
+    
+
+## let’s learn bash
+
+### 기본정보
+
+![20220802132655.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1d614407-29e5-4489-a5b5-37a91d626ba9/20220802132655.png)
+
+사용자이름@컴퓨터이름 
+
+~ (tilde) : 현재 로그인한 유저가 권한 없이 쓸 수 있는 최상위 폴더
+
+$ :  사용자의 입력을 받을 준비가 되어있다는 뜻
+
+### pwd
+
+![20220802133009.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8a3677e9-119c-42d5-9728-782a12e55dfa/20220802133009.png)
+
+pwd : 최상위로부터 절대경로를 보여줌 (print working directory)
+
+### ls
+
+![20220802133408.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a5defd8c-0c4d-4b37-8350-7d896b829f38/20220802133408.png)
+
+ls : 현재위치의 하위로 선택할 수 있는 파일이나 디렉토리
+
+ls -a : 숨김 파일도 볼 수 있음 `-`는 플래그라고 표현
+
+숨김파일은 디렉토리나 파일 앞에 `.`이 있음
+(windows는 . 붙인다고 숨김 처리 되지는 않음)
+
+ls -l : 한줄에 하나씩 디테일 한 상세정보까지 표현해줌
+
+ls -al : 숨김파일 까지 상세정보를 보여줌
+
+### cd
+
+![20220802133745.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3e7a3da3-a4e1-4399-a1cc-a99f58405d33/20220802133745.png)
+
+cd:  디렉토리 변경
+
+Documents 폴더 아래 dev 디렉토리 만들어서 개발관련 모아놓는 게 좋음
+
+(탭치면 자동완성됨)
+
+![20220802134214.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ad9ee066-cdd7-4d2d-ab5f-43853e74ad61/20220802134214.png)
+
+cd / cd ~ : 최상위 디렉토리로 돌아감
+
+cd Documents/dev/ :  한번에 내려갈 수 있다.
+
+cd .. : 상위 디렉토리 이동
+
+cd ../.. : 두단계 위로 이동
+
+### mkdir
+
+![20220802134042.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/512654c0-65b3-4b0f-b21e-00aaa55588b3/20220802134042.png)
+
+mkdir : 새로운 디렉토리 만들음
+
+### touch
+
+![20220802151740.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3cdd0745-78ba-43ca-b8b0-3a66c8cf74f1/20220802151740.png)
+
+touch: 새로운 파일 만들음 
+(호환이 잘안되는 파일 형식이 있음 ex docs, hwp, ppt…)
+
+### mv
+
+![20220802152222.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4f4d3cfa-bc76-472a-be00-54ebe7cd180b/20220802152222.png)
+
+mv : 이미 존재하는 파일을 특정한 위치로 이동
+
+mv move.html test : move.html을 static으로 옮겨라
+
+![20220802152532.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6721ec03-3d42-43fe-9a47-9cae3603b9df/20220802152532.png)
+
+![20220802152543.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/527981ac-541e-4d05-b17a-4c83ec18d52f/20220802152543.png)
+
+![20220802152550.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/192bc0ab-ac0e-436e-9863-eba1f3d94337/20220802152550.png)
+
+![20220802152558.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b5e7c360-a19e-4fd5-9d7d-40ce78d586c6/20220802152558.png)
+
+어떤 위치에 존재하는 것을 여기로 옮겨라 가능
+
+mv ../style.css . 상위 디렉토리의 스타일css를 현재 디렉토리로
+
+mv ../main.js . 상위 디렉토리의 메인.js를 현재 디렉토리로 옮겨라
+
+![20220802152758.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f57916f0-b15f-4f8b-8d2a-99760293b5ce/20220802152758.png)
+
+이름 바꾸기
+
+mv index.html navber.html
+
+index.html를 main.html로 이름 바꾸기
+
+### cp
+
+(copy, clone, duplicate - 다 다르다. 리무브는 논리적 - 메모리상에 남아있음. 딜리트는 물리적)
+
+![20220802153137.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c7dac824-c7e2-40b8-a9c0-1a25eed2c750/20220802153137.png)
+
+cp : 복사 
+
+cp main.html .. : 현재 디렉토리의 파일을 상위 디렉토리에 사본을 만들음
+
+![20220802153357.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ab78870c-8d87-4b1f-9397-cd2950536011/20220802153357.png)
+
+이름을 다시 지어 사본 만들기
+
+cp hello.txt hello-copy.txt 이름 다르게 사본 만들기
+
+![20220802153509.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0a5fe53a-ada4-4bcb-b48d-f192796d5d5d/20220802153509.png)
+
+cp hello.txt static/bye.txt
+
+현재 위치의 hello.html을 test폴더에 bye라는 이름의 사본 만들기
+
+### rm
+
+![20220802153742.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cbce465b-9b81-4654-bdaa-c847661eabe8/20220802153742.png)
+
+rm : 파일 삭제
+
+rm bye.html
+
+![20220802153834.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d3564ffe-01c0-4487-804e-55f3de367535/20220802153834.png)
+
+규칙성이 존재하는 것들 지우기
+
+rm server.* 서버라는 이름의 모든 파일 형식
+
+![20220802153927.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b60b0e3d-c361-4582-9da3-aebd83e2da98/20220802153927.png)
+
+rm *.css모든 css파일 삭제
+
+rm 은 폴더 못지움
+
+![20220802154059.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/614b546f-7c02-45d1-85bc-8547826a5fa5/20220802154059.png)
+
+rm -r 
+
+안에 존재하는 오브젝트가 길을 잃을 수 있기 때문에 폴더만 못지움
+
+하위에 있는 거 모두 지워야함
+
+디렉토리를 삭제하려면 -r (재귀) 플래그로 하위 모든 파일 삭제
+
+rm -r test
+
+rm -rf
+
+## vim
